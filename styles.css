@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Suit-Regular';
+    src: url('assets/fonts/suit-regular.eot');
+    src: url('assets/fonts/suit-regular.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/suit-regular.woff') format('woff'),
+         url('assets/fonts/suit-regular.ttf') format('truetype'),
+         url('assets/fonts/suit-regular.svg#suit-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  background-color: var(--primary);
+}
+
+my-card {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  margin: 1em;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.card {
+  width: 10em;
+  height: 15em;
+  padding: auto;
+  perspective: 50em;
+  border-radius: 1em;
+}
+
+.card:hover .card-inner, my-card.show .card .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1em;
+}
+
+.card-front {
+  background-color: white;
+  border: 4px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+.card-back {
+  background-color: #ffffff;
+  border: 4px solid black;
+  transform: rotateY(180deg);
+  box-shadow: var(--shadow);
+}
+
+.color-black {
+  color: black;
+}
+.color-red {
+  color: red;
+}
+
+
+.suit, .rank {
+  line-height: 0.75em;
+}
+.suit {
+  font-family: "Suit-Regular";
+  font-size: 2.5em;
+}
+.rank {
+  font-size: 2em;
+}
+
+.card-topleft {
+  position: absolute;
+  top: 0.5em;
+  left: 0.75em;
+}
+
+.card-bottomright {
+  position: absolute;
+  bottom: 0.1em;
+  right: 0.1em;
+  transform: rotate(180deg);
+}
+
+.card-corner-rank, .card-corner-suit {
+  text-align: center;
+  transform: translate(-50%, 0);
+}
